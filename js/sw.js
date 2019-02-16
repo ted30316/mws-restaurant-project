@@ -1,4 +1,4 @@
-console.log('Service Worker: Registered');
+//console.log('Service Worker: Registered');
 const cacheFiles = [
     '/',
     '/index.html',
@@ -20,25 +20,23 @@ const cacheFiles = [
     '/img/10.jpg'
 ];
 
-
-
-self.addEventListener('install', function (e) {
-    e.waitUntil(
+self.addEventListener('install', function (event) {
+    event.waitUntil(
         caches.open('v1').then(function (cache) {
             return cache.addAll(cacheFiles);
         })
     );
 });
 
-self.addEventListener('fetch', function (e) {
-    e.respondWith(
-        caches.match(e.request).then(function (response) {
+self.addEventListener('fetch', function (event) {
+    event.respondWith(
+        caches.match(event.request).then(function (response) {
             if (response) {
-                console.log('Found ', e.request, ' in cache');
+                console.log('Found ', event.request, ' in cache');
                 return response;
             } else {
-                console.log('Could not find ', e.request, ' in cache, FETCHING!');
-                return fetch(e.request)
+                console.log('Could not find ', event.request, ' in cache, FETCHING!');
+                return fetch(event.request)
                     .then(function (response) {
                         const clonedResponse = response.clone();
                         caches.open('v1').then(function (cache) {

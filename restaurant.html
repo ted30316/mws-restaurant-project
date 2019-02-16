@@ -31,10 +31,10 @@
   <!-- End header -->
 
   <!-- Beginning main -->
-  <main id="maincontent">
+  <main id="maincontent" role="main">
     <!-- Beginning map -->
     <section id="map-container">
-      <div id="map"></div>
+      <div id="map" role="application" aria-hidden="true" aria-describedby="map-help"></div>
     </section>
     <!-- End map -->
     <!-- Beginning restaurant -->
@@ -68,7 +68,8 @@
   <script src="js/secret.js"></script>
   <script type="text/javascript" src="js/restaurant_info.js"></script>
   <!-- Google Maps -->
-  <!--  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script> -->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyA_tKbW6A5pQ-eupxI56myUnHLqYCzOjKo&libraries=places&callback=initMap"></script>
+  -->
   <!-- End scripts -->
 
 </body>

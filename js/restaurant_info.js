@@ -31,6 +31,7 @@ initMap = () => {
       }).addTo(newMap);
       fillBreadcrumb();
       DBHelper.mapMarkerForRestaurant(self.restaurant, self.newMap);
+      document.querySelector("#map").setAttribute("alt", "Map showing the location of " + self.restaurant.name + " restaurant.");
     }
   });
 }
